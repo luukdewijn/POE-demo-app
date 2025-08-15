@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalized Outreach Engine - ODAS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Sora:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img class="logo-icon" src="img/odas-logo.png" alt="ODAS Logo">
+                </div>
+                <div class="status-indicator">
+                    <div class="status-dot"></div>
+                    <span>System Active</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="dashboard">
+        <div class="container">
+            <div class="dashboard-header">
+                <h1 class="dashboard-title">Personalized Outreach Engine</h1>
+                <p class="dashboard-subtitle">Streamlined workflow management for personalized outreach campaigns with real-time metrics and intelligent automation.</p>
+            </div>
+
+            <div class="metrics-overview">
+                <div class="metric-card">
+                    <div class="metric-value" id="total-prospects">1,247</div>
+                    <div class="metric-label">Total Prospects</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value" id="emails-sent">892</div>
+                    <div class="metric-label">Emails Sent</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value" id="response-rate">24.3%</div>
+                    <div class="metric-label">Response Rate</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value" id="meetings-booked">67</div>
+                    <div class="metric-label">Meetings Booked</div>
+                </div>
+            </div>
+
+            <div class="workflows">
+                <!-- Data Sourcing -->
+                <div class="workflow-card">
+                    <div class="workflow-header">
+                        <div class="workflow-icon">📊</div>
+                        <div>
+                            <div class="workflow-title">Data Sourcing</div>
+                            <div class="workflow-status">
+                                <span class="status-badge status-active">Active</span>
+                                <span>Last run: 2 hours ago</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="workflow-metrics">
+                        <div class="mini-metric">
+                            <div class="mini-metric-value">1,247</div>
+                            <div class="mini-metric-label">Prospects Loaded</div>
+                        </div>
+                        <div class="mini-metric">
+                            <div class="mini-metric-value">94%</div>
+                            <div class="mini-metric-label">Data Quality</div>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 100%"></div>
+                    </div>
+                    <div class="workflow-controls">
+                        <button class="btn btn-primary" onclick="openModal('data-sourcing')">Upload Data</button>
+                        <button class="btn btn-secondary" onclick="triggerWorkflow('data-sourcing')">Run Now</button>
+                    </div>
+                </div>
+
+                <!-- Data Cleaning -->
+                <div class="workflow-card">
+                    <div class="workflow-header">
+                        <div class="workflow-icon">🧹</div>
+                        <div>
+                            <div class="workflow-title">Data Cleaning</div>
+                            <div class="workflow-status">
+                                <span class="status-badge status-active">Processing</span>
+                                <span>Running now</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="workflow-metrics">
+                        <div class="mini-metric">
+                            <div class="mini-metric-value">156</div>
+                            <div class="mini-metric-label">Duplicates Removed</div>
+                        </div>
+                        <div class="mini-metric">
+                            <div class="mini-metric-value">98%</div>
+                            <div class="mini-metric-label">Clean Rate</div>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 78%"></div>
+                    </div>
+                    <div class="workflow-controls">
+                        <button class="btn btn-primary" onclick="openModal('data-cleaning')">Configure Rules</button>
+                        <button class="btn btn-secondary" onclick="pauseWorkflow('data-cleaning')">Pause</button>
+                    </div>
+                </div>
+
+                <!-- Data Enrichment -->
+                <div class="workflow-card">
+                    <div class="workflow-header">
+                        <div class="workflow-icon">⚡</div>
+                        <div>
+                            <div class="workflow-title">Data Enrichment</div>
+                            <div class="workflow-status">
+                                <span class="status-badge status-idle">Queued</span>
+                                <span>Waiting for cleaning</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="workflow-metrics">
+                        <div class="mini-metric">
+                            <div class="mini-metric-value">87%</div>
+                            <div class="mini-metric-label">Success Rate</div>
+                        </div>
+                        <div class="mini-metric">
+                            <div class="mini-metric-value">12</div>
+                            <div class="mini-metric-label">Data Points Added</div>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <div class="workflow-controls">
+                        <button class="btn btn-primary" onclick="openModal('data-enrichment')">Select Sources</button>
+                        <button class="btn btn-secondary" onclick="triggerWorkflow('data-enrichment')">Start</button>
+                    </div>
+                </div>
+
+                <!-- AI Content Generation -->
+                <div class="workflow-card">
+                    <div class="workflow-header">
+                        <div class="workflow-icon">🤖</div>
+                        <div>
+                            <div class="workflow-title">AI Content Generation</div>
+                            <div class="workflow-status">
+                                <span class="status-badge status-idle">Ready</span>
+                                <span>Waiting for trigger</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="workflow-metrics">
+                        <div class="mini-metric">
+                            <div class="mini-metric-value">342</div>
+                            <div class="mini-metric-label">Emails Generated</div>
+                        </div>
+                        <div class="mini-metric">
+                            <div class="mini-metric-value">9.2</div>
+                            <div class="mini-metric-label">Personalization Score</div>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <div class="workflow-controls">
+                        <button class="btn btn-primary" onclick="openModal('ai-content')">Preview Content</button>
+                        <button class="btn btn-secondary" onclick="triggerWorkflow('ai-content')">Generate</button>
+                    </div>
+                </div>
+
+                <!-- Outreach Execution -->
+                <div class="workflow-card">
+                    <div class="workflow-header">
+                        <div class="workflow-icon">📧</div>
+                        <div>
+                            <div class="workflow-title">Outreach Execution</div>
+                            <div class="workflow-status">
+                                <span class="status-badge status-idle">Scheduled</span>
+                                <span>Next batch: 9:00 AM</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="workflow-metrics">
+                        <div class="mini-metric">
+                            <div class="mini-metric-value">892</div>
+                            <div class="mini-metric-label">Emails Sent</div>
+                        </div>
+                        <div class="mini-metric">
+                            <div class="mini-metric-value">96%</div>
+                            <div class="mini-metric-label">Delivery Rate</div>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 65%"></div>
+                    </div>
+                    <div class="workflow-controls">
+                        <button class="btn btn-primary" onclick="openModal('outreach')">Schedule Campaign</button>
+                        <button class="btn btn-secondary" onclick="triggerWorkflow('outreach')">Send Now</button>
+                    </div>
+                </div>
+
+                <!-- Follow-up Management -->
+                <div class="workflow-card">
+                    <div class="workflow-header">
+                        <div class="workflow-icon">🔄</div>
+                        <div>
+                            <div class="workflow-title">Follow-up Management</div>
+                            <div class="workflow-status">
+                                <span class="status-badge status-active">Monitoring</span>
+                                <span>Tracking responses</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="workflow-metrics">
+                        <div class="mini-metric">
+                            <div class="mini-metric-value">217</div>
+                            <div class="mini-metric-label">Opens Tracked</div>
+                        </div>
+                        <div class="mini-metric">
+                            <div class="mini-metric-value">43</div>
+                            <div class="mini-metric-label">Follow-ups Queued</div>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 24%"></div>
+                    </div>
+                    <div class="workflow-controls">
+                        <button class="btn btn-primary" onclick="openModal('follow-up')">Configure Rules</button>
+                        <button class="btn btn-secondary" onclick="viewResponses()">View Responses</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modal-title">Workflow Configuration</h3>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div id="modal-body">
+                <!-- Dynamic content will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification"></div>
+
+    <script src="scripts/script.js"></script>
+</body>
+</html>
